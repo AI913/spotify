@@ -10,7 +10,6 @@
 		0C99C4082614E61B00391405 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99C4072614E61B00391405 /* AppDelegate.swift */; };
 		0C99C40A2614E61B00391405 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99C4092614E61B00391405 /* SceneDelegate.swift */; };
 		0C99C40C2614E61B00391405 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99C40B2614E61B00391405 /* ViewController.swift */; };
-		0C99C40F2614E61B00391405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C99C40D2614E61B00391405 /* Main.storyboard */; };
 		0C99C4112614E61C00391405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C99C4102614E61C00391405 /* Assets.xcassets */; };
 		0C99C4142614E61C00391405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C99C4122614E61C00391405 /* LaunchScreen.storyboard */; };
 		0C99C41F2614E61C00391405 /* SpotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C99C41E2614E61C00391405 /* SpotifyTests.swift */; };
@@ -39,7 +38,6 @@
 		0C99C4072614E61B00391405 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C99C4092614E61B00391405 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0C99C40B2614E61B00391405 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0C99C40E2614E61B00391405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C99C4102614E61C00391405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C99C4132614E61C00391405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C99C4152614E61C00391405 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,12 +97,12 @@
 		0C99C4062614E61B00391405 /* Spotify */ = {
 			isa = PBXGroup;
 			children = (
-				0C99C4072614E61B00391405 /* AppDelegate.swift */,
-				0C99C4092614E61B00391405 /* SceneDelegate.swift */,
-				0C99C40B2614E61B00391405 /* ViewController.swift */,
-				0C99C40D2614E61B00391405 /* Main.storyboard */,
-				0C99C4102614E61C00391405 /* Assets.xcassets */,
-				0C99C4122614E61C00391405 /* LaunchScreen.storyboard */,
+				0C99C43B2614E69E00391405 /* Resources */,
+				0C99C43E2614E6B900391405 /* Managers */,
+				0C99C43C2614E6A500391405 /* ViewModels */,
+				0C99C43D2614E6B200391405 /* Models */,
+				0C99C43F2614E6C400391405 /* Views */,
+				0C99C43A2614E69700391405 /* Controllers */,
 				0C99C4152614E61C00391405 /* Info.plist */,
 			);
 			path = Spotify;
@@ -126,6 +124,53 @@
 				0C99C42B2614E61C00391405 /* Info.plist */,
 			);
 			path = SpotifyUITests;
+			sourceTree = "<group>";
+		};
+		0C99C43A2614E69700391405 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C99C40B2614E61B00391405 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0C99C43B2614E69E00391405 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C99C4072614E61B00391405 /* AppDelegate.swift */,
+				0C99C4092614E61B00391405 /* SceneDelegate.swift */,
+				0C99C4102614E61C00391405 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C99C43C2614E6A500391405 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0C99C43D2614E6B200391405 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0C99C43E2614E6B900391405 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0C99C43F2614E6C400391405 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C99C4122614E61C00391405 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +278,6 @@
 			files = (
 				0C99C4142614E61C00391405 /* LaunchScreen.storyboard in Resources */,
 				0C99C4112614E61C00391405 /* Assets.xcassets in Resources */,
-				0C99C40F2614E61B00391405 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +340,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0C99C40D2614E61B00391405 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0C99C40E2614E61B00391405 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0C99C4122614E61C00391405 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
