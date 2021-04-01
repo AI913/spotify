@@ -73,13 +73,13 @@
 		FC326F042615982D00268DD3 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		FC326F092615983400268DD3 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		FC326F0E2615984C00268DD3 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
-		FC326F132615986B00268DD3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = Spotify/Controllers/Other/AuthManager.swift; sourceTree = SOURCE_ROOT; };
-		FC326F182615987600268DD3 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APICaller.swift; path = Spotify/Controllers/Other/APICaller.swift; sourceTree = SOURCE_ROOT; };
-		FC326F1D2615988000268DD3 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticManager.swift; path = Spotify/Controllers/Other/HapticManager.swift; sourceTree = SOURCE_ROOT; };
-		FC326F222615989900268DD3 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Spotify/Controllers/Other/Playlist.swift; sourceTree = SOURCE_ROOT; };
-		FC326F27261598A300268DD3 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioTrack.swift; path = Spotify/Controllers/Other/AudioTrack.swift; sourceTree = SOURCE_ROOT; };
-		FC326F2C261598B100268DD3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Spotify/Controllers/Other/Artist.swift; sourceTree = SOURCE_ROOT; };
-		FC326F31261598BC00268DD3 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = Spotify/Controllers/Other/UserProfile.swift; sourceTree = SOURCE_ROOT; };
+		FC326F132615986B00268DD3 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthManager.swift; path = Spotify/Managers/AuthManager.swift; sourceTree = SOURCE_ROOT; };
+		FC326F182615987600268DD3 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APICaller.swift; path = Spotify/Managers/APICaller.swift; sourceTree = SOURCE_ROOT; };
+		FC326F1D2615988000268DD3 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HapticManager.swift; path = Spotify/Managers/HapticManager.swift; sourceTree = SOURCE_ROOT; };
+		FC326F222615989900268DD3 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Spotify/Models/Playlist.swift; sourceTree = SOURCE_ROOT; };
+		FC326F27261598A300268DD3 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioTrack.swift; path = Spotify/Models/AudioTrack.swift; sourceTree = SOURCE_ROOT; };
+		FC326F2C261598B100268DD3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Spotify/Models/Artist.swift; sourceTree = SOURCE_ROOT; };
+		FC326F31261598BC00268DD3 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = Spotify/Models/UserProfile.swift; sourceTree = SOURCE_ROOT; };
 		FC326F3926159AA000268DD3 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,7 +183,7 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = ViewModels;
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 		0C99C43D2614E6B200391405 /* Models */ = {
@@ -204,7 +204,7 @@
 				FC326F182615987600268DD3 /* APICaller.swift */,
 				FC326F1D2615988000268DD3 /* HapticManager.swift */,
 			);
-			path = Managers;
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		0C99C43F2614E6C400391405 /* Views */ = {
