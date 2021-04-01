@@ -31,6 +31,7 @@
 		FC326F2D261598B100268DD3 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC326F2C261598B100268DD3 /* Artist.swift */; };
 		FC326F32261598BC00268DD3 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC326F31261598BC00268DD3 /* UserProfile.swift */; };
 		FC326F3A26159AA000268DD3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC326F3926159AA000268DD3 /* TabBarViewController.swift */; };
+		FC7F21472615A93D009EF867 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7F21462615A93D009EF867 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		FC326F2C261598B100268DD3 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = Spotify/Models/Artist.swift; sourceTree = SOURCE_ROOT; };
 		FC326F31261598BC00268DD3 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserProfile.swift; path = Spotify/Models/UserProfile.swift; sourceTree = SOURCE_ROOT; };
 		FC326F3926159AA000268DD3 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		FC7F21462615A93D009EF867 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				0C99C4072614E61B00391405 /* AppDelegate.swift */,
 				0C99C4092614E61B00391405 /* SceneDelegate.swift */,
 				0C99C4102614E61C00391405 /* Assets.xcassets */,
+				FC7F21462615A93D009EF867 /* Extension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				FC326F002615981E00268DD3 /* ProfileViewController.swift in Sources */,
 				FC326F28261598A300268DD3 /* AudioTrack.swift in Sources */,
 				FC326F3A26159AA000268DD3 /* TabBarViewController.swift in Sources */,
+				FC7F21472615A93D009EF867 /* Extension.swift in Sources */,
 				0C99C40C2614E61B00391405 /* HomeViewController.swift in Sources */,
 				FC326EEE261597F900268DD3 /* AuthViewController.swift in Sources */,
 				0C99C4082614E61B00391405 /* AppDelegate.swift in Sources */,
