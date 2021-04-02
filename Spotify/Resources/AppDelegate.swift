@@ -24,10 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.rootViewController = navVC
         }
         window.makeKeyAndVisible()
-        
-        print(AuthManager.shared.signInURL?.absoluteString)
-        
         self.window = window
+        
         return true
     }
 
