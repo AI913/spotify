@@ -45,6 +45,7 @@
 		FC48035A2616AB1600B39FBE /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4803592616AB1600B39FBE /* AuthResponse.swift */; };
 		FC48035F2616E60D00B39FBE /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC48035E2616E60D00B39FBE /* SettingsModels.swift */; };
 		FC7F21472615A93D009EF867 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7F21462615A93D009EF867 /* Extension.swift */; };
+		FC7F8168261AA43A00F6B740 /* NewReleasesCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7F8167261AA43A00F6B740 /* NewReleasesCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		FC4803592616AB1600B39FBE /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		FC48035E2616E60D00B39FBE /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
 		FC7F21462615A93D009EF867 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		FC7F8167261AA43A00F6B740 /* NewReleasesCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReleasesCellModel.swift; sourceTree = "<group>"; };
 		FFE6240604EE6CE64BD8A446 /* Pods_Spotify_SpotifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spotify_SpotifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -232,6 +234,7 @@
 		0C99C43C2614E6A500391405 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FC7F8167261AA43A00F6B740 /* NewReleasesCellModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				FC326F232615989900268DD3 /* Playlist.swift in Sources */,
 				FC326F142615986B00268DD3 /* AuthManager.swift in Sources */,
 				FC326F1E2615988000268DD3 /* HapticManager.swift in Sources */,
+				FC7F8168261AA43A00F6B740 /* NewReleasesCellModel.swift in Sources */,
 				0C32E27A2619E8030059E8E5 /* APIImage.swift in Sources */,
 				FC326F0F2615984C00268DD3 /* SearchResultsViewController.swift in Sources */,
 				FC326EF62615980600268DD3 /* WelcomeViewController.swift in Sources */,
