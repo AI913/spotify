@@ -22,6 +22,52 @@ final class APICaller {
         case failedToGetData
     }
     
+    // MARK: - Albums
+    public func getAlbumDetails(for album: Album, completion: @escaping (Result<AlbumDetailsResponse, Error>) -> Void) {
+        createRequest(
+            with: URL(string: Constants.baseAPIURL + "/albums/" + album.id),
+            type: .GET
+        ) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(AlbumDetailsResponse.self, from: data)
+                    completion(.success(result))
+                }
+                catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    // MARK: - Playlists
+    public func getPlaylistDetails(for playlist: Playlist, completion: @escaping (Result<PlaylistDetailsResponse, Error>) -> Void) {
+        createRequest(
+            with: URL(string: Constants.baseAPIURL + "/playlists/" + playlist.id),
+            type: .GET
+        ) { request in
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
+                }
+                do {
+                    let result = try JSONDecoder().decode(PlaylistDetailsResponse.self, from: data)
+                    completion(.success(result))
+                }
+                catch {
+                    completion(.failure(error))
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    // MARK: - Profile
     public func getCurrentUserProfile(completion: @escaping (Result<UserProfile, Error>) -> Void) {
         createRequest(
             with: URL(string: Constants.baseAPIURL + "/me"),
@@ -53,16 +99,16 @@ final class APICaller {
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
                     return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
+                    completion(.success(result))
+                }
+                catch {
+                    completion(.failure(error))
+                }
             }
-            
-            do {
-                let result = try JSONDecoder().decode(NewReleasesResponse.self, from: data)
-                completion(.success(result))
-            }
-            catch {
-                completion(.failure(error))
-            }
-        }
             task.resume()
         }
     }
@@ -73,16 +119,16 @@ final class APICaller {
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
                     return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(FeaturedPlaylistsResponse.self, from: data)
+                    completion(.success(result))
+                }
+                catch {
+                    completion(.failure(error))
+                }
             }
-            
-            do {
-                let result = try JSONDecoder().decode(FeaturedPlaylistsResponse.self, from: data)
-                completion(.success(result))
-            }
-            catch {
-                completion(.failure(error))
-            }
-        }
             task.resume()
         }
     }
@@ -93,10 +139,10 @@ final class APICaller {
             with: URL(string: Constants.baseAPIURL + "/recommendations?seed_genres=\(seeds)"),
             type: .GET
         ) { request in
-                let task = URLSession.shared.dataTask(with: request) { data, _, error in
-                    guard let data = data, error == nil else {
-                        completion(.failure(APIError.failedToGetData))
-                        return
+            let task = URLSession.shared.dataTask(with: request) { data, _, error in
+                guard let data = data, error == nil else {
+                    completion(.failure(APIError.failedToGetData))
+                    return
                 }
                 
                 do {
@@ -107,10 +153,10 @@ final class APICaller {
                     completion(.failure(error))
                 }
             }
-                task.resume()
-            }
+            task.resume()
+        }
     }
-
+    
     public func getRecommendedGenres(completion: @escaping ((Result<RecommendedGenresResponse, Error>) -> Void)) {
         createRequest(with: URL(string: Constants.baseAPIURL + "/recommendations/available-genre-seeds"),
                       type: .GET
@@ -119,29 +165,30 @@ final class APICaller {
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
                     return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
+                    completion(.success(result))
+                }
+                catch {
+                    completion(.failure(error))
+                }
             }
-            
-            do {
-                let result = try JSONDecoder().decode(RecommendedGenresResponse.self, from: data)
-                completion(.success(result))
-            }
-            catch {
-                completion(.failure(error))
-            }
-        }
             task.resume()
-            }
+        }
     }
-
-
-        
+    
+    // MARK: - Browse
+    
+    
     // MARK: - Private
-
+    
     enum HTTPMethod: String {
         case GET
         case POST
     }
-        
+    
     
     private func createRequest(with url: URL?, type: HTTPMethod, completion: @escaping (URLRequest) -> Void) {
         AuthManager.shared.withValidToken { token in
