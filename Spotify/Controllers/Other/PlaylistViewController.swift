@@ -17,7 +17,7 @@ class PlaylistViewController: UIViewController {
             let item = NSCollectionLayoutItem(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .absolute(80)
+                    heightDimension: .fractionalHeight(1.0)
                 )
             )
             
@@ -27,13 +27,20 @@ class PlaylistViewController: UIViewController {
             let group = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1.0),
-                    heightDimension: .absolute(80)
+                    heightDimension: .absolute(60)
                 ),
                 subitem: item,
                 count: 1
             )
             // Section
             let section = NSCollectionLayoutSection(group: group)
+            section.boundarySupplementaryItems = [
+                NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(1)),
+                    elementKind: UICollectionView.elementKindSectionHeader,
+                    alignment: .top
+                )
+            ]
             return section
         }))
     
@@ -54,8 +61,15 @@ class PlaylistViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         view.addSubview(collectionView)
-        collectionView.register(RecommendedTrackCollectionViewCell.self,
-                                forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier)
+        collectionView.register(
+            RecommendedTrackCollectionViewCell.self,
+            forCellWithReuseIdentifier: RecommendedTrackCollectionViewCell.identifier
+        )
+        collectionView.register(
+            PlaylistHeaderCollectionReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier
+        )
         collectionView.backgroundColor = .systemBackground
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -98,9 +112,28 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
         ) as? RecommendedTrackCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .red
-                cell.configure(with: viewModels[indexPath.row])
+        cell.backgroundColor = .systemBackground
+        cell.configure(with: viewModels[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier,
+                for: indexPath
+        ) as? PlaylistHeaderCollectionReusableView,
+            kind == UICollectionView.elementKindSectionHeader else {
+                return UICollectionReusableView()
+            }
+        let headerViewModel = PlaylistHeaderViewViewModel(
+            name: playlist.name,
+            ownerName: playlist.owner.display_name,
+            description: playlist.description,
+            artworkURL: URL(string: playlist.images.first?.url ?? "")
+        )
+         header.configure(with: headerViewModel)
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
