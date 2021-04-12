@@ -32,6 +32,7 @@ class PlaylistViewController: UIViewController {
                 subitem: item,
                 count: 1
             )
+            
             // Section
             let section = NSCollectionLayoutSection(group: group)
             section.boundarySupplementaryItems = [
@@ -85,11 +86,29 @@ class PlaylistViewController: UIViewController {
                     })
                     self?.collectionView.reloadData()
                 case .failure(let error):
-                    break
+                    print(error.localizedDescription)
                 }
             }
         }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                            target: self,
+                                                            action: #selector(didTapShare))
     }
+    
+    @objc private func didTapShare() {
+        guard let url = URL(string: playlist.external_urls["spotify"] ?? "") else {
+            return
+        }
+        let vc = UIActivityViewController(
+            activityItems: [url],
+            applicationActivities: []
+        )
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
@@ -119,25 +138,33 @@ extension PlaylistViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let header = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier,
-                for: indexPath
+            ofKind: kind,
+            withReuseIdentifier: PlaylistHeaderCollectionReusableView.identifier,
+            for: indexPath
         ) as? PlaylistHeaderCollectionReusableView,
-            kind == UICollectionView.elementKindSectionHeader else {
-                return UICollectionReusableView()
-            }
+        kind == UICollectionView.elementKindSectionHeader else {
+            return UICollectionReusableView()
+        }
         let headerViewModel = PlaylistHeaderViewViewModel(
             name: playlist.name,
             ownerName: playlist.owner.display_name,
             description: playlist.description,
             artworkURL: URL(string: playlist.images.first?.url ?? "")
         )
-         header.configure(with: headerViewModel)
+        header.configure(with: headerViewModel)
+        header.delegate = self
         return header
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         // Play song
+    }
+}
+
+extension PlaylistViewController: PlaylistHeaderCollectionReusableViewDelegate {
+    func playlistHeaderCollectionReusableViewDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
+        // Start play list play in queue
+        print("play all")
     }
 }
