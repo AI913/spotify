@@ -81,11 +81,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             return
         }
         
+        resultsController.delegate = self
+        
         APICaller.shared.search(with: query) { result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let results):
-                    break
+                    resultsController.update(with: results)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -101,7 +103,25 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         // Perform search
         // APICaller.shared.search
     }
-    
+}
+
+extension SearchViewController: SearchResultsViewControllerDelegate {
+    func didTapResult(_ result: SearchResult) {
+        switch result {
+        case .artist(let model):
+            break
+        case .album(let model):
+            let vc = AlbumViewController(album: model)
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+        case .track(let model):
+            break
+        case .playlist(let model):
+            let vc = PlaylistViewController(playlist: model)
+            vc.navigationItem.largeTitleDisplayMode = .never
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
