@@ -97,8 +97,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
-        
         //resultsController.update(with: results)
         // Perform search
         // APICaller.shared.search

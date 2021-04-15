@@ -138,7 +138,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         case .playlist(let playlist):
             guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: SearchResultDefaultTableViewCell.identifer,
+                    withIdentifier: SearchResultSubtitleTableViewCell.identifer,
                     for: indexPath
             ) as? SearchResultSubtitleTableViewCell else {
                 return UITableViewCell()

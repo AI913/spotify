@@ -54,19 +54,17 @@ class SearchResultSubtitleTableViewCell: UITableViewCell {
             height: imageSize
         )
         let labelHeight = contentView.height/2
-        iconImageView.layer.cornerRadius = imageSize/2
-        iconImageView.layer.masksToBounds = true
         label.frame = CGRect(
-            x: iconImageView.height,
+            x: iconImageView.right+10,
             y: 0,
             width: contentView.width-iconImageView.right-15,
             height: labelHeight
         )
         subtitleLabel.frame = CGRect(
-            x: iconImageView.height,
+            x: iconImageView.right+10,
             y: label.bottom,
             width: contentView.width-iconImageView.right-15,
-            height: contentView.height
+            height: labelHeight
         )
     }
     
