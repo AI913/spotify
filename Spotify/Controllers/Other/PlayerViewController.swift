@@ -9,21 +9,21 @@ import UIKit
 
 class PlayerViewController: UIViewController {
 
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .systemBlue
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        view.addSubview(imageView)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imageView.frame = CGRect(x: 0, y: 0, width: view.width, height: view.width)
     }
-    */
-
 }
